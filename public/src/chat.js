@@ -7,7 +7,13 @@ socket.on('message', (message) => {
 document.querySelector('#msg-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const inputValue = e.target.elements.message.value;
-  socket.emit('sendMessage', inputValue);
+  socket.emit('sendMessage', inputValue, (error) => {
+    if (error) {
+      return console.log(error);
+    }
+
+    console.log('Message delivered!');
+  });
 });
 
 document.querySelector('#send-location').addEventListener('click', () => {
@@ -19,6 +25,8 @@ document.querySelector('#send-location').addEventListener('click', () => {
     socket.emit('sendLocation', {
       latitude: position.coords.latitude,
       longitude: position.coords.longitude
+    }, () => {
+      console.log('Location shared!');
     });
   });
 });
