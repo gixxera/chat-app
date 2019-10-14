@@ -15,6 +15,7 @@
     </div>
     <div class="chat__main">
       <div id="messages" class="chat__messages"></div>
+
       <div class="compose">
         <form id="msg-form">
           <input name="message" type="text" placeholder="Enter your message" />
@@ -36,11 +37,11 @@
   </script>
 
   <script id="location-template" type="text/html">
-    <div class="message">
+    <div>
         <p>
-            <span class="message__name">Some User Name</span>
-            <span class="message__meta">{{createdAt}}</span>
-          </p>
+        <span class="message__name">Some User Name</span>
+        <span class="message__meta">{{createdAt}}</span>
+      </p>
       <p><a href="{{url}}" target="_blank">My Current Location</a></p>
     </div>
   </script>
